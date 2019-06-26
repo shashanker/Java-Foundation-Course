@@ -12,8 +12,8 @@ import com.epam.course.springcore.domain.Salary;
 import com.epam.course.springcore.util.Util;
 
 
-@Service
-public class SalaryService {
+@Service("SalaryService")
+public class SalaryService implements CompanyService{
 	
 	
 	/*
@@ -75,5 +75,11 @@ public class SalaryService {
 		salary.setPos(p);
 		Util.salaries.add(salary);
 		return salary;
+	}
+
+	@Override
+	public void print() {
+		// TODO Auto-generated method stub
+		System.out.println("Servicing Request by SalaryService....");
 	}
 }

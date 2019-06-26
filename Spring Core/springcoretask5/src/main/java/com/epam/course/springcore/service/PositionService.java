@@ -12,18 +12,20 @@ import org.springframework.stereotype.Service;
 import com.epam.course.springcore.domain.Position;
 import com.epam.course.springcore.util.Util;
 
-@Service
-public class PositionService {
+@Service("PositionService")
+public class PositionService implements CompanyService{
 	
 	/*
 	 * List available position
 	 */
-	public void getAvailablePositions()
+	public Map<String, Integer> getAvailablePositions()
 	{
 		System.out.println("****Available Positions ******");
 		for(Entry<String, Integer> e : Util.positionMap.entrySet()) {
 			System.out.println("Position : "+e.getKey()+"\t vacancies : "+e.getValue());
 		}
+		
+		return Util.positionMap;
 	}
 	
 	/*
@@ -101,5 +103,17 @@ public class PositionService {
 		});
 		
 		getAvailablePositions();
+	}
+	
+	
+	public static PositionService getPositionService()
+	{
+		return new PositionService();
+	}
+	
+	@Override
+	public void print() {
+		// TODO Auto-generated method stub
+		System.out.println("Servicing Request by PositionService....");
 	}
 }
