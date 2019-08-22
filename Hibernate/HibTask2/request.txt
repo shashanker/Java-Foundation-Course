@@ -1,0 +1,90 @@
+CREATE
+1. UNIT  : @PostMapping("/api/unit")
+Body :
+
+{
+	"name":"DOT NET"
+}
+
+2. PROJECT : @PostMapping("/api/project")
+Body :
+
+{
+	"name":"HAVI"
+}
+
+3. EMPLOYEE : @PostMapping("/api/employee")
+Body :
+
+{
+	"name":"emp1",
+	"status":"CONTRACTOR",
+	"address":{
+		"street" : "alfjdls",
+		"city" :"arueojv",
+		"zip" : "500019",
+		"state" : "Telangana"
+	},
+	"employeePersonalInfo" :{
+		"personalEmail" : "aljbc@oee.com",
+		"mobile" :"0023803232",
+		"permenantAdress" : "Lingampally",
+		"currentAddress" : "Lingampally"
+	},
+	"external" : "true"
+}
+
+FIND
+1. Employee : @GetMapping("/api/employee/{id}")
+2. Project : @GetMapping("/api/project/{id}")
+3. Unit : @GetMapping("/api/unit/{id}")
+
+DELETE
+1. Employee : @DeleteMapping("/api/employee/{id}")
+2. Project : @DeleteMapping("/api/project/{id}")
+3. Unit : @DeleteMapping("/api/unit/{id}") 
+
+UPDATE
+1. EMPLOYEE : @PutMapping("/api/employee/")
+Body :
+{
+	"id":1,
+	"name":"emp1",
+	"status":"FULLTIME",
+	"address":{
+		"street" : "alfjdls",
+		"city" :"arueojv",
+		"zip" : "500019",
+		"state" : "Telangana"
+	}
+}
+
+2. Project : @PutMapping("/api/project/")
+Body :
+{
+	"id" : 1,
+	"name":"HAVIS"
+}
+
+3. Unit : @PutMapping("/api/unit/")
+Body :
+{
+	"id" : 1,
+	"name":"JAVA"
+}
+
+*** ADD EMPLOYEE TO UNIT By id's
+@PostMapping("/unit/{id}/employee")
+Body :
+{
+	"id":1,
+	"name":"DOT NET",
+	"empIds":[1]
+}
+
+*** ADD EMPLOYEE TO PROJECT By id's
+{
+	"id":1,
+	"name":"HAVI",
+	"empIds" : [1]
+}
